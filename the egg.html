@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Egg</title>
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Work+Sans&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+   <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="sketch.js"></script>
+
+        <style>
+            .serif {
+              font-family: 'Libre Baskerville', serif;
+              font-size: 22px;
+              color: white;
+              letter-spacing: 0.1rem;
+              vertical-align: bottom;
+              line-height: 1rem;
+              opacity:1;
+            }
+            .sans-serif {
+              font-family: 'Work Sans', sans-serif;
+              font-size: 23.5px;
+              color: white;
+              letter-spacing: 0.1rem;
+              vertical-align: bottom;
+              line-height: 1rem;
+              opacity:1;
+            }
+
+            .vanish:hover {
+              opacity: 0;
+            }
+
+            .huge:hover {
+              display:inline-block;
+              transform: scale(20);
+              letter-spacing: normal;
+            }
+
+            .big:hover {
+              display:inline-block;
+              transform: scale(10);
+            }
+
+            .medium:hover {
+              display:inline-block;
+              transform: scale(5);
+            }
+
+            .small:hover {
+              display:inline-block;
+              transform: scale(2);
+            }
+
+            .tiny:hover {
+              display:inline-block;
+              transform: scale(0.5);
+            }
+
+            .car:hover + #car{
+              visibility: visible;
+            }
+
+            #car{
+              position: fixed;
+              left:300px;
+              top:500px;
+              visibility: hidden;
+              z-index: -10;
+              width:500px;
+              height:auto;
+            }
+
+            .ground:hover + #ground{
+              visibility: visible;
+            }
+
+            #ground{
+              position: fixed;
+              left:300px;
+              top:200px;
+              visibility: hidden;
+
+              width:1000px;
+              height:auto;
+            }
+
+            html, body {
+                width: 76000px;
+                //height: 100vh;
+                margin: 0;
+                padding: 0;
+                background-color: black;
+                font-family: 'Work Sans', sans-serif;
+            }
+
+            #container {
+                background-color:white;
+                margin:0;
+                margin-top:450px;
+                margin-bottom:auto;
+            }
+
+	  #sketch {
+              position:fixed;
+              width:100%;
+              height:100%;
+              left:0;
+              top:0;
+              z-index: -50;
+            }
+
+            p {
+                margin: 0;
+                padding: 0;
+                display:inline;
+                float:left;
+                margin-left: 50px;
+                mix-blend-mode: difference;
+            }
+        </style>
+    </head>
+    <body>
+      <div id="sketch"></div>
+        <div id="container">
+            <p class="serif">The Egg</p>
+            <p class="serif">By: Andy Weir</p>
+            <p class="serif">You were on your way home when you <span class="vanish">died</span>.</p>
+            <p class="serif car">It was a car accident. </p>
+            <!--<img id="car" src="car.jpg">-->
+            <p class="serif">Nothing particularly remarkable, but <span class="big">fatal</span> nonetheless. You left behind a wife and two children. It was a painless death. The EMTs tried their <span class="huge">best</span> to save you, but to no avail. </p>
+            <p class="serif ground">Your body was so utterly shattered you were better off, <span class="tiny">trust me.</span> </p>
+            <!--<img id="ground" src="ground.jpg">-->
+            <p class="serif">And that&rsquo;s when you met me.</p>
+            <p class="sans-serif">&ldquo;What&hellip; what happened?&rdquo; You asked. &ldquo;<span class="small">Where am I</span>?&rdquo;</p>
+            <p class="serif">&ldquo;You <span class="vanish">died</span>,&rdquo; I said, matter-of-factly. No point in mincing words.</p>
+            <p class="sans-serif">&ldquo;There was a&hellip; a truck and it was <span class="medium">skidding</span>&hellip;&rdquo;</p>
+            <p class="serif">&ldquo;Yup,&rdquo; I said.</p>
+            <p class="sans-serif">&ldquo;I&hellip; I <span class="vanish">died</span>?&rdquo;</p>
+            <p class="serif">&ldquo;Yup. But don&rsquo;t feel bad about it. Everyone dies,&rdquo; I said.</p>
+            <p class="sans-serif">You looked around. There was nothingness. Just you and me. &ldquo;What is this place?&rdquo; You asked. &ldquo;Is this the afterlife?&rdquo;</p>
+            <p class="serif">&ldquo;More or less,&rdquo; I said.</p>
+            <p class="sans-serif">&ldquo;Are you god?&rdquo; You asked.</p>
+            <p class="serif">&ldquo;Yup,&rdquo; I replied. &ldquo;I&rsquo;m God.&rdquo;</p>
+            <p class="sans-serif">&ldquo;My kids&hellip; my wife,&rdquo; you said.</p>
+            <p class="serif">&ldquo;What about them?&rdquo;</p>
+            <p class="sans-serif">&ldquo;Will they be all right?&rdquo;</p>
+            <p class="serif">&ldquo;That&rsquo;s what I like to see,&rdquo; I said. &ldquo;You just <span class="vanish">died</span> and your main concern is for your family. That&rsquo;s good stuff right there.&rdquo;</p>
+            <p class="serif">You looked at me with fascination. To you, I didn&rsquo;t look like God. I just looked like some man. Or possibly a woman. Some vague authority figure, maybe. More of a grammar school teacher than the almighty.</p>
+            <p class="serif">&ldquo;Don&rsquo;t worry,&rdquo; I said. &ldquo;They&rsquo;ll be fine. Your kids will remember you as perfect in every way. They didn&rsquo;t have time to grow contempt for you. Your wife will cry on the outside, but will be secretly relieved. To be fair, your marriage was falling apart. If it&rsquo;s any consolation, she&rsquo;ll feel very guilty for feeling relieved.&rdquo;</p>
+            <p class="sans-serif">&ldquo;Oh,&rdquo; you said. &ldquo;So what happens now? Do I go to heaven or hell or something?&rdquo;</p>
+            <p class="serif">&ldquo;Neither,&rdquo; I said. &ldquo;You&rsquo;ll be reincarnated.&rdquo;</p>
+            <p class="sans-serif">&ldquo;Ah,&rdquo; you said. &ldquo;So the Hindus were right,&rdquo;</p>
+            <p class="serif">&ldquo;All religions are right in their own way,&rdquo; I said. &ldquo;Walk with me.&rdquo;</p>
+            <p class="sans-serif">You followed along as we strode through the void. &ldquo;Where are we going?&rdquo;</p>
+            <p class="serif">&ldquo;Nowhere in particular,&rdquo; I said. &ldquo;It&rsquo;s just nice to walk while we talk.&rdquo;</p>
+            <p class="sans-serif">&ldquo;So what&rsquo;s the point, then?&rdquo; You asked. &ldquo;When I get reborn, I&rsquo;ll just be a blank slate, right? A baby. So all my experiences and everything I did in this life won&rsquo;t matter.&rdquo; &nbsp; &nbsp; &nbsp;&ldquo;Not so!&rdquo; I said. &ldquo;You have within you all the knowledge and experiences of all your past lives. You just don&rsquo;t remember them right now.&rdquo;</p>
+            <p class="serif">I stopped walking and took you by the shoulders. &ldquo;Your soul is more magnificent, beautiful, and gigantic than you can possibly imagine. A human mind can only contain a tiny fraction of what you are. It&rsquo;s like sticking your finger in a glass of water to see if it&rsquo;s hot or cold. You put a tiny part of yourself into the vessel, and when you bring it back out, you&rsquo;ve gained all the experiences it had.</p>
+            <p class="serif">&ldquo;You&rsquo;ve been in a human for the last 48 years, so you haven&rsquo;t stretched out yet and felt the rest of your immense consciousness. If we hung out here for long enough, you&rsquo;d start remembering everything. But there&rsquo;s no point to doing that between each life.&rdquo;</p>
+            <p class="sans-serif">&ldquo;How many times have I been reincarnated, then?&rdquo;</p>
+            <p class="serif">&ldquo;Oh lots. Lots and lots. An in to lots of different lives.&rdquo; I said. &ldquo;This time around, you&rsquo;ll be a Chinese peasant girl in 540 AD.&rdquo;</p>
+            <p class="sans-serif">&ldquo;Wait, what?&rdquo; You stammered. &ldquo;You&rsquo;re sending me back in time?&rdquo;</p>
+            <p class="serif">&ldquo;Well, I guess technically. Time, as you know it, only exists in your universe. Things are different where I come from.&rdquo;</p>
+            <p class="sans-serif">&ldquo;Where you come from?&rdquo; You said.</p>
+            <p class="serif">&ldquo;Oh sure,&rdquo; I explained &ldquo;I come from somewhere. Somewhere else. And there are others like me. I know you&rsquo;ll want to know what it&rsquo;s like there, but honestly you wouldn&rsquo;t understand.&rdquo;</p>
+            <p class="sans-serif">&ldquo;Oh,&rdquo; you said, a little let down. &ldquo;But wait. If I get reincarnated to other places in time, I could have interacted with myself at some point.&rdquo;</p>
+            <p class="serif">&ldquo;Sure. Happens all the time. And with both lives only aware of their own lifespan you don&rsquo;t even know it&rsquo;s happening.&rdquo;</p>
+            <p class="sans-serif">&ldquo;So what&rsquo;s the point of it all?&rdquo;</p>
+            <p class="serif">&ldquo;Seriously?&rdquo; I asked. &ldquo;Seriously? You&rsquo;re asking me for the meaning of life? Isn&rsquo;t that a little stereotypical?&rdquo;</p>
+            <p class="sans-serif">&ldquo;Well it&rsquo;s a reasonable question,&rdquo; you persisted.</p>
+            <p class="serif">I looked you in the eye. &ldquo;The meaning of life, the reason I made this whole universe, is for you to mature.&rdquo;</p>
+            <p class="sans-serif">&ldquo;You mean mankind? You want us to mature?&rdquo;</p>
+            <p class="serif">&ldquo;No, just you. I made this whole universe for you. With each new life you grow and mature and become a larger and greater intellect.&rdquo;</p>
+            <p class="sans-serif">&ldquo;Just me? What about everyone else?&rdquo;</p>
+            <p class="serif">&ldquo;There is no one else,&rdquo; I said. &ldquo;In this universe, there&rsquo;s just you and me.&rdquo;</p>
+            <p class="sans-serif">You stared blankly at me. &ldquo;But all the people on earth&hellip;&rdquo;</p>
+            <p class="serif">&ldquo;All you. Different incarnations of you.&rdquo;</p>
+            <p class="sans-serif">&ldquo;Wait. I&rsquo;m everyone!?&rdquo;</p>
+            <p class="serif">&ldquo;Now you&rsquo;re getting it,&rdquo; I said, with a congratulatory slap on the back.</p>
+            <p class="sans-serif">&ldquo;I&rsquo;m every human being who ever lived?&rdquo;</p>
+            <p class="serif">&ldquo;Or who will ever live, yes.&rdquo;</p>
+            <p class="sans-serif">&ldquo;I&rsquo;m Abraham Lincoln?&rdquo;</p>
+            <p class="serif">&ldquo;And you&rsquo;re John Wilkes Booth, too,&rdquo; I added.</p>
+            <p class="sans-serif">&ldquo;I&rsquo;m Hitler?&rdquo; You said, appalled.</p>
+            <p class="serif">&ldquo;And you&rsquo;re the millions he killed.&rdquo;</p>
+            <p class="sans-serif">&ldquo;I&rsquo;m Jesus?&rdquo;</p>
+            <p class="serif">&ldquo;And you&rsquo;re everyone who followed him.&rdquo;</p>
+            <p class="sans-serif">You fell silent.</p>
+            <p class="serif">&ldquo;Every time you victimized someone,&rdquo; I said, &ldquo;you were victimizing yourself. Every act of kindness you&rsquo;ve done, you&rsquo;ve done to yourself. Every happy and sad moment ever experienced by any human was, or will be, experienced by you.&rdquo;</p>
+            <p class="serif">You thought for a long time.</p>
+            <p class="sans-serif">&ldquo;Why?&rdquo; You asked me. &ldquo;Why do all this?&rdquo;</p>
+            <p class="serif">&ldquo;Because someday, you will become like me. Because that&rsquo;s what you are. You&rsquo;re one of my kind. You&rsquo;re my child.&rdquo;</p>
+            <p class="sans-serif">&ldquo;Whoa,&rdquo; you said, incredulous. &ldquo;You mean I&rsquo;m a god?&rdquo;</p>
+            <p class="serif">&ldquo;No. Not yet. You&rsquo;re a fetus. You&rsquo;re still growing. Once you&rsquo;ve lived every human life throughout all time, you will have grown enough to be born.&rdquo;</p>
+            <p class="sans-serif">&ldquo;So the whole universe,&rdquo; you said, &ldquo;it&rsquo;s just&hellip;&rdquo;</p>
+            <p class="serif">&ldquo;An egg.&rdquo; I answered. &ldquo;Now it&rsquo;s time for you to move on to your next life.&rdquo;</p>
+            <p class="serif">And I sent you on your way.</p>
+            <p class="serif">         The Egg</p>
+
+        </div>
+        <script>
+          console.log($(window).scrollLeft());
+        </script>
+    </body>
+</html>
