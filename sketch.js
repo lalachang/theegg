@@ -84,3 +84,8 @@ function leftFunction() {
       });
   });
 }
+
+
+
+//Get the button:
+mybutton = document.getElementById("myBtn");
